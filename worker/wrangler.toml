@@ -1,0 +1,6 @@
+name = "favfield"
+main = "src/index.ts"
+compatibility_date = "2025-06-03"
+
+[vars]
+CACHE_TTL_SECONDS = "45"
