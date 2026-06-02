@@ -1,16 +1,16 @@
 # FavField Worker (Phase 1)
 
-Yahoo!スポーツナビの [プロ野球](https://baseball.yahoo.co.jp/npb/) ページをスクレイピングし、推し球団の最新試合状況を JSON で返す Cloudflare Workers API です。
+A Cloudflare Workers API that scrapes [NPB scores on Yahoo! Sports](https://baseball.yahoo.co.jp/npb/) and returns the latest game status for a favorite team as JSON.
 
-## エンドポイント
+## Endpoints
 
-| Path | 説明 |
-|------|------|
-| `GET /score?team=T` | 推し球団の最新スコア（略号: G, S, DB, D, T, C, L, F, M, B, H, E） |
-| `GET /teams` | 12球団一覧 |
-| `GET /health` | ヘルスチェック |
+| Path | Description |
+|------|-------------|
+| `GET /score?team=T` | Latest score for a team (abbr: G, S, DB, D, T, C, L, F, M, B, H, E) |
+| `GET /teams` | List of all 12 NPB teams |
+| `GET /health` | Health check |
 
-### レスポンス例
+### Example response
 
 ```json
 {
@@ -26,15 +26,15 @@ Yahoo!スポーツナビの [プロ野球](https://baseball.yahoo.co.jp/npb/) �
 }
 ```
 
-`status` の値:
+`status` values:
 
-- `pre` … 試合前（例: `L - T 18:00`）
-- `live` … 試合中（例: `T 1-0 G 7裏`）
-- `final` … 試合終了（例: `B 2-3 G`）
-- `cancelled` … 試合中止
-- `none` … 対象試合なし
+- `pre` — Before first pitch (e.g. `L - T 18:00`)
+- `live` — In progress (e.g. `T 1-0 G 7裏`)
+- `final` — Game over (e.g. `B 2-3 G`)
+- `cancelled` — Postponed or cancelled
+- `none` — No matching game found
 
-## セットアップ
+## Setup
 
 ```bash
 cd worker
@@ -42,29 +42,29 @@ npm install
 npm run dev
 ```
 
-ローカル起動後:
+After the dev server starts:
 
 ```bash
 curl "http://localhost:8787/score?team=T"
 curl "http://localhost:8787/teams"
 ```
 
-## デプロイ
+## Deploy
 
 ```bash
 npm run deploy
 ```
 
-Cloudflare アカウントにログイン済みである必要があります（`npx wrangler login`）。
+Requires a logged-in Cloudflare account (`npx wrangler login`).
 
-## 設計メモ
+## Design notes
 
-- Yahoo への直接アクセスは Worker 側のみ。クライアントは JSON を読むだけ。
-- Cache API で 45 秒キャッシュ（`wrangler.toml` の `CACHE_TTL_SECONDS` で変更可）。
-- 本日の試合を優先し、なければ前日の結果を返す。
-- 試合中は `/npb/game/{id}/score` からイニング情報を補完。
+- Only the Worker talks to Yahoo directly; clients consume JSON.
+- Responses are cached for 45 seconds via the Cache API (configurable via `CACHE_TTL_SECONDS` in `wrangler.toml`).
+- Today's game is preferred; if none exists, yesterday's result is returned.
+- Inning details during live games are enriched from `/npb/game/{id}/score`.
 
-## 注意
+## Caveats
 
-- Yahoo の HTML 構造変更で壊れる可能性があります。修正は Worker 側のみで対応可能です。
-- スクレイピングのため、過度なリクエストは避けてください（キャッシュ必須）。
+- Scraping may break if Yahoo changes its HTML. Fixes can be deployed on the Worker side only.
+- Avoid excessive requests to Yahoo; caching is required.
