@@ -24,6 +24,7 @@ struct TeamPickerView: View {
                 List(teams) { team in
                     Button {
                         TeamPreferences.shared.favoriteTeamAbbr = team.abbr
+                        WidgetReloader.reloadScoreWidget()
                         onSelect(team.abbr)
                     } label: {
                         HStack {
