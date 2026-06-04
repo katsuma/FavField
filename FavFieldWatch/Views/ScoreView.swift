@@ -23,7 +23,7 @@ struct ScoreView: View {
                     .minimumScaleFactor(0.7)
                     .lineLimit(2)
 
-                Text(statusLabel(for: score.status))
+                Text(score.statusLabel)
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }
@@ -35,6 +35,7 @@ struct ScoreView: View {
 
                 Button("Change Team") {
                     TeamPreferences.shared.favoriteTeamAbbr = nil
+                    WidgetReloader.reloadScoreWidget()
                     onChangeTeam()
                 }
             }
@@ -53,28 +54,12 @@ struct ScoreView: View {
 
         do {
             score = try await APIClient.shared.fetchScore(teamAbbr: teamAbbr)
+            WidgetReloader.reloadScoreWidget()
         } catch {
             errorMessage = error.localizedDescription
         }
 
         isLoading = false
-    }
-
-    private func statusLabel(for status: String) -> String {
-        switch status {
-        case "pre":
-            return "Scheduled"
-        case "live":
-            return "Live"
-        case "final":
-            return "Final"
-        case "cancelled":
-            return "Cancelled"
-        case "none":
-            return "No game"
-        default:
-            return status
-        }
     }
 }
 
