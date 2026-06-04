@@ -1,0 +1,73 @@
+name: FavField
+options:
+  bundleIdPrefix: tv.katsuma
+  deploymentTarget:
+    watchOS: "11.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    WATCHOS_DEPLOYMENT_TARGET: "11.0"
+
+targets:
+  FavFieldWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: Shared
+      - path: FavFieldWatch
+    dependencies:
+      - target: FavFieldWidget
+        embed: true
+    info:
+      path: FavFieldWatch/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: FavField
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        WKApplication: true
+        WKWatchOnly: true
+    entitlements:
+      path: FavFieldWatch/Resources/FavFieldWatch.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.tv.katsuma.FavField
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: tv.katsuma.FavField.watchkitapp
+        CODE_SIGN_STYLE: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+
+  FavFieldWidget:
+    type: app-extension
+    platform: watchOS
+    sources:
+      - path: Shared
+      - path: FavFieldWidget
+    info:
+      path: FavFieldWidget/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: FavFieldWidget
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: FavFieldWidget/Resources/FavFieldWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.tv.katsuma.FavField
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: tv.katsuma.FavField.watchkitapp.widget
+        CODE_SIGN_STYLE: Automatic
+
+schemes:
+  FavFieldWatch:
+    build:
+      targets:
+        FavFieldWatch: all
+        FavFieldWidget: all
+    run:
+      config: Debug
