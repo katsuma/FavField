@@ -1,0 +1,62 @@
+import SwiftUI
+
+struct TeamPickerView: View {
+    @State private var teams: [Team] = []
+    @State private var isLoading = true
+    @State private var errorMessage: String?
+
+    let onSelect: (String) -> Void
+
+    var body: some View {
+        Group {
+            if isLoading {
+                ProgressView("Loading teams...")
+            } else if let errorMessage {
+                VStack(spacing: 8) {
+                    Text(errorMessage)
+                        .font(.caption2)
+                        .multilineTextAlignment(.center)
+                    Button("Retry") {
+                        Task { await loadTeams() }
+                    }
+                }
+            } else {
+                List(teams) { team in
+                    Button {
+                        TeamPreferences.shared.favoriteTeamAbbr = team.abbr
+                        onSelect(team.abbr)
+                    } label: {
+                        HStack {
+                            Text(team.abbr)
+                                .font(.headline.monospaced())
+                                .frame(width: 28, alignment: .leading)
+                            Text(team.name)
+                            Spacer()
+                        }
+                    }
+                }
+            }
+        }
+        .task {
+            await loadTeams()
+        }
+    }
+
+    @MainActor
+    private func loadTeams() async {
+        isLoading = true
+        errorMessage = nil
+
+        do {
+            teams = try await APIClient.shared.fetchTeams()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+
+        isLoading = false
+    }
+}
+
+#Preview {
+    TeamPickerView { _ in }
+}
