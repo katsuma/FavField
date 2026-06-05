@@ -1,5 +1,10 @@
 import Foundation
 
+protocol ScoreProviding {
+    func fetchTeams() async throws -> [Team]
+    func fetchScore(teamAbbr: String) async throws -> ScoreResponse
+}
+
 enum APIError: LocalizedError {
     case invalidResponse
     case httpStatus(Int)
@@ -14,14 +19,14 @@ enum APIError: LocalizedError {
     }
 }
 
-final class APIClient {
+final class APIClient: ScoreProviding {
     static let shared = APIClient()
 
     private let baseURL: URL
     private let session: URLSession
 
     init(
-        baseURL: URL = AppConstants.apiBaseURL,
+        baseURL: URL = AppConfig.apiBaseURL,
         session: URLSession = .shared
     ) {
         self.baseURL = baseURL

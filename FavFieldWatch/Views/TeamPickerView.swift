@@ -49,7 +49,7 @@ struct TeamPickerView: View {
         errorMessage = nil
 
         do {
-            teams = try await APIClient.shared.fetchTeams()
+            teams = try await ScoreService.current.fetchTeams()
         } catch {
             errorMessage = error.localizedDescription
         }

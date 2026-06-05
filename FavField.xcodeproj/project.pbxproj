@@ -9,22 +9,30 @@
 /* Begin PBXBuildFile section */
 		062B76686D29E58E64B83014 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4899644A53319D1669DE8 /* APIClient.swift */; };
 		0E8C497D811AAFE9D92D4472 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8BC274336AB4296488BF1 /* AppConstants.swift */; };
+		18A54E5A314E9F083561EAFF /* ScoreDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */; };
 		241C3120F69D56541DDDDDF0 /* TeamPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20F46DAF38E697E9D7D92 /* TeamPreferences.swift */; };
 		2506014780285AC6D84D23EB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4C1BAD764C1F0174BDFC3 /* Team.swift */; };
 		2984246B60E3BC93FF0C44CF /* WidgetReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C549C8E651A6D6A0DAF5CA13 /* WidgetReloader.swift */; };
 		3120C0A09054D0B30BA36F2C /* ScoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1DE3DD00D78638C059746 /* ScoreResponse.swift */; };
+		387BEB76CAFA72B0927E6632 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4AF85DF0BA282397D94D4F /* AppConfig.swift */; };
 		3A389AA1EA58F65BCF0524F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABADF5EDEEDB0D95F7BA2AED /* ContentView.swift */; };
 		5B7B34E772098FE5FF63CB9A /* WidgetReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C549C8E651A6D6A0DAF5CA13 /* WidgetReloader.swift */; };
+		6759799318AD532E90A3042D /* ScoreDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */; };
 		7A5BE3C8C3035B052DD87563 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4C1BAD764C1F0174BDFC3 /* Team.swift */; };
+		7ECD061015941A22942268FF /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */; };
 		7FF4273046468258B0931F11 /* FavFieldWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2100E115A35FD4C07833390A /* FavFieldWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		80CCA20843F8C8E239D888E7 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */; };
 		8580B00900EEAEE735FF6A6E /* TeamPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44A01EB87FF2A7C641CD6ED /* TeamPickerView.swift */; };
 		8FDC967B5F44912E1A8430CC /* ScoreResponse+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF008F3A32472037B0FA8FDF /* ScoreResponse+Display.swift */; };
 		9FBCA02EC5A34251D4CF9628 /* FavFieldWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B271E34449BE2FC4261996CB /* FavFieldWidget.swift */; };
 		9FC2B6C1F11C3F00AC6DD026 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8BC274336AB4296488BF1 /* AppConstants.swift */; };
 		A34245C64AE65290D3D8C776 /* TeamPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20F46DAF38E697E9D7D92 /* TeamPreferences.swift */; };
+		A750DFB06C8F40FE0C439718 /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D155528695B3AF181C6E5 /* ScoreService.swift */; };
 		AC2DD4258054D8ADF5BE772A /* FavFieldWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F5E468110A540518133E5B /* FavFieldWidgetBundle.swift */; };
+		C061B271B9A3E36B67320046 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4AF85DF0BA282397D94D4F /* AppConfig.swift */; };
 		C08B1432383FE687EB72D505 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = FD032700E064BEBED050CE51 /* AppIcon.icon */; };
 		C158EC5E47AF1E79E3CEB73D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE85EA08C56C5603334B509 /* Assets.xcassets */; };
+		C4197646AFCA6EA34636A9ED /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D155528695B3AF181C6E5 /* ScoreService.swift */; };
 		C6336E5C37C91938B14A5FCD /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C76EB4CFD72B7711435892 /* ScoreView.swift */; };
 		E91ACD62E5BA932D576DD5F0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4899644A53319D1669DE8 /* APIClient.swift */; };
 		EA32F4FD1C599EBB29BEF194 /* ScoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1DE3DD00D78638C059746 /* ScoreResponse.swift */; };
@@ -57,7 +65,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		06B90B125ED7A94DD7FD0EFA /* FavFieldWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavFieldWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A4AF85DF0BA282397D94D4F /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		2100E115A35FD4C07833390A /* FavFieldWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FavFieldWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F4899644A53319D1669DE8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		471FFC24A70ACF64E9BBF86D /* FavFieldWatchRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWatchRelease.entitlements; sourceTree = "<group>"; };
@@ -68,6 +78,7 @@
 		9AE85EA08C56C5603334B509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E5BA18D255FF7D32EFC082A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A44A01EB87FF2A7C641CD6ED /* TeamPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPickerView.swift; sourceTree = "<group>"; };
+		A82D155528695B3AF181C6E5 /* ScoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreService.swift; sourceTree = "<group>"; };
 		A9F5E468110A540518133E5B /* FavFieldWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavFieldWidgetBundle.swift; sourceTree = "<group>"; };
 		ABADF5EDEEDB0D95F7BA2AED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AF008F3A32472037B0FA8FDF /* ScoreResponse+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreResponse+Display.swift"; sourceTree = "<group>"; };
@@ -77,6 +88,7 @@
 		CF703B4F28017E333C2F7F1B /* FavFieldWidgetRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWidgetRelease.entitlements; sourceTree = "<group>"; };
 		DCC8BC274336AB4296488BF1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		EB8F8AE042E52238A596F31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDisplayView.swift; sourceTree = "<group>"; };
 		F8C76EB4CFD72B7711435892 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		F9ED2DCE77717046B0E6D5A9 /* FavFieldWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWatch.entitlements; sourceTree = "<group>"; };
 		FD032700E064BEBED050CE51 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
@@ -107,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				32F4899644A53319D1669DE8 /* APIClient.swift */,
+				00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */,
+				A82D155528695B3AF181C6E5 /* ScoreService.swift */,
 				94A20F46DAF38E697E9D7D92 /* TeamPreferences.swift */,
 				C549C8E651A6D6A0DAF5CA13 /* WidgetReloader.swift */,
 			);
@@ -116,6 +130,7 @@
 		2BC68D4C0C8140224BB23F23 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0A4AF85DF0BA282397D94D4F /* AppConfig.swift */,
 				DCC8BC274336AB4296488BF1 /* AppConstants.swift */,
 			);
 			path = Constants;
@@ -128,6 +143,14 @@
 				2100E115A35FD4C07833390A /* FavFieldWidget.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		36FFD499FCA1433BA90B7D3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5B61C56CEF5FB446B1502727 = {
@@ -196,6 +219,7 @@
 				2BC68D4C0C8140224BB23F23 /* Constants */,
 				8FC3140E5A2D06CF65C3458D /* Models */,
 				25EB67D4B5500ACA25EABD4E /* Services */,
+				36FFD499FCA1433BA90B7D3C /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -297,11 +321,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E91ACD62E5BA932D576DD5F0 /* APIClient.swift in Sources */,
+				387BEB76CAFA72B0927E6632 /* AppConfig.swift in Sources */,
 				9FC2B6C1F11C3F00AC6DD026 /* AppConstants.swift in Sources */,
 				3A389AA1EA58F65BCF0524F7 /* ContentView.swift in Sources */,
 				EC5DB4E8ED3DED4B408F554A /* FavFieldWatchApp.swift in Sources */,
+				80CCA20843F8C8E239D888E7 /* MockAPIClient.swift in Sources */,
+				18A54E5A314E9F083561EAFF /* ScoreDisplayView.swift in Sources */,
 				8FDC967B5F44912E1A8430CC /* ScoreResponse+Display.swift in Sources */,
 				EA32F4FD1C599EBB29BEF194 /* ScoreResponse.swift in Sources */,
+				A750DFB06C8F40FE0C439718 /* ScoreService.swift in Sources */,
 				C6336E5C37C91938B14A5FCD /* ScoreView.swift in Sources */,
 				2506014780285AC6D84D23EB /* Team.swift in Sources */,
 				8580B00900EEAEE735FF6A6E /* TeamPickerView.swift in Sources */,
@@ -315,11 +343,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				062B76686D29E58E64B83014 /* APIClient.swift in Sources */,
+				C061B271B9A3E36B67320046 /* AppConfig.swift in Sources */,
 				0E8C497D811AAFE9D92D4472 /* AppConstants.swift in Sources */,
 				9FBCA02EC5A34251D4CF9628 /* FavFieldWidget.swift in Sources */,
 				AC2DD4258054D8ADF5BE772A /* FavFieldWidgetBundle.swift in Sources */,
+				7ECD061015941A22942268FF /* MockAPIClient.swift in Sources */,
+				6759799318AD532E90A3042D /* ScoreDisplayView.swift in Sources */,
 				F20DD0E99F113B9816C6C506 /* ScoreResponse+Display.swift in Sources */,
 				3120C0A09054D0B30BA36F2C /* ScoreResponse.swift in Sources */,
+				C4197646AFCA6EA34636A9ED /* ScoreService.swift in Sources */,
 				7A5BE3C8C3035B052DD87563 /* Team.swift in Sources */,
 				A34245C64AE65290D3D8C776 /* TeamPreferences.swift in Sources */,
 				5B7B34E772098FE5FF63CB9A /* WidgetReloader.swift in Sources */,
@@ -405,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL = "http://localhost:8787";
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -462,6 +495,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				USE_MOCK_API = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Debug;
@@ -470,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				API_BASE_URL = "https://fav-field.katsuma.workers.dev";
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -520,6 +555,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
+				USE_MOCK_API = NO;
 				WATCHOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
