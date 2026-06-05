@@ -3,15 +3,27 @@ import SwiftUI
 
 struct ScoreEntry: TimelineEntry {
     let date: Date
-    let display: String
-    let status: String
+    let score: ScoreResponse?
     let teamAbbr: String?
     let isError: Bool
 
+    var status: String {
+        score?.status ?? "none"
+    }
+
+    var inlineText: String {
+        if isError {
+            return "取得不可"
+        }
+        if teamAbbr == nil {
+            return "チーム未選択"
+        }
+        return score?.inlineText ?? "取得不可"
+    }
+
     static let pickTeam = ScoreEntry(
         date: .now,
-        display: "Pick a team",
-        status: "none",
+        score: nil,
         teamAbbr: nil,
         isError: false
     )
@@ -21,8 +33,7 @@ struct ScoreProvider: TimelineProvider {
     func placeholder(in context: Context) -> ScoreEntry {
         ScoreEntry(
             date: .now,
-            display: "T 1-0 G 7裏",
-            status: "live",
+            score: .previewLive,
             teamAbbr: "T",
             isError: false
         )
@@ -51,16 +62,14 @@ struct ScoreProvider: TimelineProvider {
             let score = try await APIClient.shared.fetchScore(teamAbbr: teamAbbr)
             return ScoreEntry(
                 date: .now,
-                display: score.display,
-                status: score.status,
+                score: score,
                 teamAbbr: teamAbbr,
                 isError: false
             )
         } catch {
             return ScoreEntry(
                 date: .now,
-                display: "Unavailable",
-                status: "none",
+                score: nil,
                 teamAbbr: teamAbbr,
                 isError: true
             )
@@ -83,34 +92,19 @@ struct ScoreWidgetView: View {
     }
 
     private var inlineBody: some View {
-        Text(entry.display)
+        Text(entry.inlineText)
             .font(.caption2.monospaced())
             .minimumScaleFactor(0.7)
             .lineLimit(1)
     }
 
     private var rectangularBody: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text(entry.display)
-                .font(.caption.monospaced())
-                .minimumScaleFactor(0.7)
-                .lineLimit(1)
-            Text(subtitle)
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-
-    private var subtitle: String {
-        if entry.isError {
-            return "Tap app to refresh"
-        }
-        if entry.teamAbbr == nil {
-            return "Open FavField"
-        }
-        return GameStatus.label(for: entry.status)
+        ScoreDisplayView(
+            score: entry.score,
+            teamAbbr: entry.teamAbbr,
+            isError: entry.isError,
+            style: .widgetRectangular
+        )
     }
 }
 
@@ -131,11 +125,16 @@ struct FavFieldWidget: Widget {
 #Preview(as: .accessoryInline) {
     FavFieldWidget()
 } timeline: {
-    ScoreEntry(date: .now, display: "T 1-0 G 7裏", status: "live", teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewLive, teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewPre, teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewNone, teamAbbr: "E", isError: false)
 }
 
 #Preview(as: .accessoryRectangular) {
     FavFieldWidget()
 } timeline: {
-    ScoreEntry(date: .now, display: "L - T 18:00", status: "pre", teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewLive, teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewFinal, teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewPre, teamAbbr: "T", isError: false)
+    ScoreEntry(date: .now, score: .previewNone, teamAbbr: "E", isError: false)
 }

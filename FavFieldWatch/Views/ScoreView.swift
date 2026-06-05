@@ -16,16 +16,14 @@ struct ScoreView: View {
                 Text(errorMessage)
                     .font(.caption2)
                     .multilineTextAlignment(.center)
-            } else if let score {
-                Text(score.display)
-                    .font(.title3.monospaced())
-                    .multilineTextAlignment(.center)
-                    .minimumScaleFactor(0.7)
-                    .lineLimit(2)
-
-                Text(score.statusLabel)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+            } else {
+                ScoreDisplayView(
+                    score: score,
+                    teamAbbr: teamAbbr,
+                    isError: false,
+                    style: .app
+                )
+                .multilineTextAlignment(.center)
             }
 
             HStack {
