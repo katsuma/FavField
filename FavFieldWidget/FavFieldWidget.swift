@@ -59,7 +59,7 @@ struct ScoreProvider: TimelineProvider {
         }
 
         do {
-            let score = try await APIClient.shared.fetchScore(teamAbbr: teamAbbr)
+            let score = try await ScoreService.current.fetchScore(teamAbbr: teamAbbr)
             return ScoreEntry(
                 date: .now,
                 score: score,

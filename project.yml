@@ -17,6 +17,11 @@ settings:
   configs:
     Debug:
       ONLY_ACTIVE_ARCH: NO
+      API_BASE_URL: http://localhost:8787
+      USE_MOCK_API: YES
+    Release:
+      API_BASE_URL: https://fav-field.katsuma.workers.dev
+      USE_MOCK_API: NO
 
 targets:
   FavFieldWatch:
@@ -40,6 +45,8 @@ targets:
         CFBundleVersion: "1"
         WKApplication: true
         WKWatchOnly: true
+        APIBaseURL: $(API_BASE_URL)
+        UseMockAPI: $(USE_MOCK_API)
     entitlements:
       path: FavFieldWatch/Resources/FavFieldWatch.entitlements
       properties:
@@ -65,6 +72,8 @@ targets:
         CFBundleVersion: "1"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        APIBaseURL: $(API_BASE_URL)
+        UseMockAPI: $(USE_MOCK_API)
     entitlements:
       path: FavFieldWidget/Resources/FavFieldWidget.entitlements
       properties:

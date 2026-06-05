@@ -51,7 +51,7 @@ struct ScoreView: View {
         errorMessage = nil
 
         do {
-            score = try await APIClient.shared.fetchScore(teamAbbr: teamAbbr)
+            score = try await ScoreService.current.fetchScore(teamAbbr: teamAbbr)
             WidgetReloader.reloadScoreWidget()
         } catch {
             errorMessage = error.localizedDescription
