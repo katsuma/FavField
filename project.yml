@@ -4,11 +4,19 @@ options:
   deploymentTarget:
     watchOS: "11.0"
   createIntermediateGroups: true
+  fileTypes:
+    icon:
+      file: true
 
 settings:
   base:
     SWIFT_VERSION: "5.0"
     WATCHOS_DEPLOYMENT_TARGET: "11.0"
+    ARCHS: $(ARCHS_STANDARD)
+    DEVELOPMENT_TEAM: 72LKS454FJ
+  configs:
+    Debug:
+      ONLY_ACTIVE_ARCH: NO
 
 targets:
   FavFieldWatch:
@@ -17,6 +25,10 @@ targets:
     sources:
       - path: Shared
       - path: FavFieldWatch
+        excludes:
+          - Resources/AppIcon.icon
+      - path: FavFieldWatch/Resources/AppIcon.icon
+        buildPhase: resources
     dependencies:
       - target: FavFieldWidget
         embed: true
