@@ -2,11 +2,13 @@
 
 An Apple Watch app that shows live NPB scores for your favorite team.
 
+![](./image.png)
+
 ## Structure
 
-- [`worker/`](worker/) — Cloudflare Workers API (Phase 1)
-- [`FavFieldWatch/`](FavFieldWatch/) — watchOS app (Phase 2)
-- [`FavFieldWidget/`](FavFieldWidget/) — WidgetKit complication (Phase 3)
+- [`worker/`](worker/) — Cloudflare Workers API
+- [`FavFieldWatch/`](FavFieldWatch/) — watchOS app
+- [`FavFieldWidget/`](FavFieldWidget/) — WidgetKit complication
 - [`Shared/`](Shared/) — API client and preferences shared by app + widget
 
 ## Requirements
@@ -33,7 +35,7 @@ Endpoints:
 - [`/teams`](https://fav-field.katsuma.workers.dev/teams) — 12 NPB teams
 - `/score?team=T` — latest one-line score (e.g. `T 1-0 G 7裏`)
 
-Update `Shared/Constants/AppConstants.swift` if you use a different Worker URL.
+Update API base URL via build settings or environment variables (see [Development modes](#development-modes) below).
 
 Local dev:
 
@@ -41,6 +43,56 @@ Local dev:
 cd worker && npm run dev
 curl "http://localhost:8787/score?team=T"
 ```
+
+## Development modes
+
+API behavior is resolved in this order:
+
+1. Xcode scheme environment variables (app process only)
+2. `Info.plist` values baked in at build time (app + widget)
+3. Production fallback URL
+
+| Setting | Environment variable | Info.plist key | Debug default |
+|---------|---------------------|----------------|---------------|
+| Base URL | `FAVFIELD_API_BASE_URL` | `APIBaseURL` | `http://localhost:8787` |
+| Use mock | `FAVFIELD_USE_MOCK` | `UseMockAPI` | `YES` |
+| Mock state | `FAVFIELD_MOCK_STATE` | — | `live` |
+
+### Mock responses (default Debug)
+
+Debug builds use Swift-side mock data by default. No network required.
+
+Run the app or widget preview to see score UI immediately. Change mock state in Xcode:
+
+**Product → Scheme → Edit Scheme → Run → Arguments → Environment Variables**
+
+| Variable | Example | Effect |
+|----------|---------|--------|
+| `FAVFIELD_MOCK_STATE` | `live` | Live score with inning |
+| `FAVFIELD_MOCK_STATE` | `final` | Final score |
+| `FAVFIELD_MOCK_STATE` | `pre` | Pre-game with start time |
+| `FAVFIELD_MOCK_STATE` | `none` | No game today |
+
+Note: scheme environment variables apply to the **watch app process only**. The widget extension reads `UseMockAPI` from `Info.plist` (Debug = mock on by default).
+
+### Localhost Worker API
+
+To hit a real local Worker instead of mock data:
+
+1. Start the Worker: `cd worker && npm run dev`
+2. In Xcode scheme, set `FAVFIELD_USE_MOCK=0`
+3. Keep default `APIBaseURL` (`http://localhost:8787`) or set `FAVFIELD_API_BASE_URL=http://localhost:8787`
+
+For a **physical device**, use your Mac's LAN IP instead of `localhost`:
+
+`FAVFIELD_API_BASE_URL=http://192.168.x.x:8787`
+
+### Production API
+
+Release builds point to production automatically. For Debug against production:
+
+`FAVFIELD_USE_MOCK=0`
+`FAVFIELD_API_BASE_URL=https://fav-field.katsuma.workers.dev`
 
 ## Build (watchOS)
 
