@@ -78,7 +78,7 @@ struct ScoreDisplayView: View {
     private func fallbackBody(title: String, subtitle: String) -> some View {
         VStack(alignment: horizontalAlignment, spacing: spacing) {
             Text(title)
-                .font(primaryFont)
+                .font(scoreFont)
                 .minimumScaleFactor(0.7)
                 .lineLimit(1)
             Text(subtitle)
@@ -90,45 +90,70 @@ struct ScoreDisplayView: View {
     }
 
     private func scoreLine(for score: ScoreResponse) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: teamSpacing) {
-            Text(score.away.abbr)
-                .font(teamFont)
-            Text("\(score.away.score ?? 0)")
-                .font(primaryFont.monospacedDigit())
-                .foregroundStyle(scoreColor(for: score, side: .away))
+        HStack(alignment: .firstTextBaseline, spacing: groupSpacing) {
+            teamScoreGroup(
+                team: score.away.abbr,
+                value: "\(score.away.score ?? 0)",
+                valueColor: scoreColor(for: score, side: .away),
+                teamFirst: true
+            )
             Text("-")
-                .font(primaryFont.monospacedDigit())
-            Text("\(score.home.score ?? 0)")
-                .font(primaryFont.monospacedDigit())
-                .foregroundStyle(scoreColor(for: score, side: .home))
-            Text(score.home.abbr)
-                .font(teamFont)
+                .font(scoreFont.monospacedDigit())
+            teamScoreGroup(
+                team: score.home.abbr,
+                value: "\(score.home.score ?? 0)",
+                valueColor: scoreColor(for: score, side: .home),
+                teamFirst: false
+            )
         }
         .minimumScaleFactor(0.7)
         .lineLimit(1)
     }
 
+    private func teamScoreGroup(
+        team: String,
+        value: String,
+        valueColor: Color,
+        teamFirst: Bool
+    ) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: teamScoreSpacing) {
+            if teamFirst {
+                Text(team)
+                    .font(teamFont)
+                Text(value)
+                    .font(scoreFont.monospacedDigit())
+                    .foregroundStyle(valueColor)
+            } else {
+                Text(value)
+                    .font(scoreFont.monospacedDigit())
+                    .foregroundStyle(valueColor)
+                Text(team)
+                    .font(teamFont)
+            }
+        }
+    }
+
     private func preGameLine(for score: ScoreResponse) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: teamSpacing) {
+        HStack(alignment: .firstTextBaseline, spacing: groupSpacing) {
             Text(score.away.abbr)
-                .font(primaryFont.monospacedDigit())
+                .font(teamFont)
             Text(score.startTime ?? "--:--")
-                .font(primaryFont.monospacedDigit())
+                .font(scoreFont.monospacedDigit())
             Text(score.home.abbr)
-                .font(primaryFont.monospacedDigit())
+                .font(teamFont)
         }
         .minimumScaleFactor(0.7)
         .lineLimit(1)
     }
 
     private func cancelledLine(for score: ScoreResponse) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: teamSpacing) {
+        HStack(alignment: .firstTextBaseline, spacing: groupSpacing) {
             Text(score.away.abbr)
-                .font(primaryFont.monospacedDigit())
+                .font(teamFont)
             Text("-")
-                .font(primaryFont.monospacedDigit())
+                .font(scoreFont.monospacedDigit())
             Text(score.home.abbr)
-                .font(primaryFont.monospacedDigit())
+                .font(teamFont)
         }
         .minimumScaleFactor(0.7)
         .lineLimit(1)
@@ -145,21 +170,21 @@ struct ScoreDisplayView: View {
         }
     }
 
-    private var primaryFont: Font {
+    private var scoreFont: Font {
         switch style {
         case .widgetRectangular:
             return .title3.bold()
         case .app:
-            return .title2.bold()
+            return .title3.bold()
         }
     }
 
     private var teamFont: Font {
         switch style {
         case .widgetRectangular:
-            return .caption2
+            return .title3
         case .app:
-            return .caption
+            return .title3
         }
     }
 
@@ -181,12 +206,23 @@ struct ScoreDisplayView: View {
         }
     }
 
-    private var teamSpacing: CGFloat {
+    /// Spacing between team abbr and its score (e.g. E–1, 8–T).
+    private var teamScoreSpacing: CGFloat {
         switch style {
         case .widgetRectangular:
-            return 2
+            return 8
         case .app:
-            return 4
+            return 6
+        }
+    }
+
+    /// Spacing between score groups and the dash (e.g. E1 – 8T).
+    private var groupSpacing: CGFloat {
+        switch style {
+        case .widgetRectangular:
+            return 6
+        case .app:
+            return 8
         }
     }
 

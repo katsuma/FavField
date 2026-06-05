@@ -131,7 +131,6 @@ enum ScoreRefreshInterval {
     }
 }
 
-#if DEBUG
 extension ScoreResponse {
     static let previewLive = ScoreResponse(
         status: "live",
@@ -181,4 +180,3 @@ extension ScoreResponse {
         updatedAt: "2026-06-05T21:00:00Z"
     )
 }
-#endif

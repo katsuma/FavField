@@ -122,6 +122,7 @@ struct FavFieldWidget: Widget {
     }
 }
 
+#if DEBUG
 #Preview(as: .accessoryInline) {
     FavFieldWidget()
 } timeline: {
@@ -138,3 +139,4 @@ struct FavFieldWidget: Widget {
     ScoreEntry(date: .now, score: .previewPre, teamAbbr: "T", isError: false)
     ScoreEntry(date: .now, score: .previewNone, teamAbbr: "E", isError: false)
 }
+#endif
