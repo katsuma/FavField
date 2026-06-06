@@ -173,16 +173,16 @@ struct ScoreDisplayView: View {
     private var scoreFont: Font {
         switch style {
         case .widgetRectangular:
-            return .title3.bold()
+            return .title2.weight(.light)
         case .app:
-            return .title3.bold()
+            return .title3
         }
     }
 
     private var teamFont: Font {
         switch style {
         case .widgetRectangular:
-            return .title3
+            return .title2.weight(.ultraLight)
         case .app:
             return .title3
         }
