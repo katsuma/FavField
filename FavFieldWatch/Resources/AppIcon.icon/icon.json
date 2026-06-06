@@ -1,13 +1,20 @@
 {
   "fill" : {
-    "automatic-gradient" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+    "automatic-gradient" : "display-p3:0.00000,0.00000,0.00000,1.00000"
   },
   "groups" : [
     {
       "layers" : [
         {
-          "image-name" : "favfield.png",
-          "name" : "favfield"
+          "image-name" : "score 3.png",
+          "name" : "score 3",
+          "position" : {
+            "scale" : 0.5599999999999999,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
         }
       ],
       "shadow" : {
@@ -23,6 +30,7 @@
   "supported-platforms" : {
     "circles" : [
       "watchOS"
-    ]
+    ],
+    "squares" : "shared"
   }
 }

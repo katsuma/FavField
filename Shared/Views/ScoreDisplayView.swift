@@ -227,20 +227,10 @@ struct ScoreDisplayView: View {
     }
 
     private var horizontalAlignment: HorizontalAlignment {
-        switch style {
-        case .widgetRectangular:
-            return .leading
-        case .app:
-            return .center
-        }
+        return .center
     }
 
     private var contentAlignment: Alignment {
-        switch style {
-        case .widgetRectangular:
-            return .leading
-        case .app:
-            return .center
-        }
+        return .center
     }
 }

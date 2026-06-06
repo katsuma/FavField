@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		062B76686D29E58E64B83014 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4899644A53319D1669DE8 /* APIClient.swift */; };
 		0E8C497D811AAFE9D92D4472 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8BC274336AB4296488BF1 /* AppConstants.swift */; };
+		16FBA20F2FD47CB300C3AC4C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA20E2FD47CB300C3AC4C /* AppIcon.icon */; };
 		18A54E5A314E9F083561EAFF /* ScoreDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */; };
 		241C3120F69D56541DDDDDF0 /* TeamPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20F46DAF38E697E9D7D92 /* TeamPreferences.swift */; };
 		2506014780285AC6D84D23EB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4C1BAD764C1F0174BDFC3 /* Team.swift */; };
@@ -30,7 +31,6 @@
 		A750DFB06C8F40FE0C439718 /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D155528695B3AF181C6E5 /* ScoreService.swift */; };
 		AC2DD4258054D8ADF5BE772A /* FavFieldWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F5E468110A540518133E5B /* FavFieldWidgetBundle.swift */; };
 		C061B271B9A3E36B67320046 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4AF85DF0BA282397D94D4F /* AppConfig.swift */; };
-		C08B1432383FE687EB72D505 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = FD032700E064BEBED050CE51 /* AppIcon.icon */; };
 		C158EC5E47AF1E79E3CEB73D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE85EA08C56C5603334B509 /* Assets.xcassets */; };
 		C4197646AFCA6EA34636A9ED /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D155528695B3AF181C6E5 /* ScoreService.swift */; };
 		C6336E5C37C91938B14A5FCD /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C76EB4CFD72B7711435892 /* ScoreView.swift */; };
@@ -68,6 +68,7 @@
 		00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		06B90B125ED7A94DD7FD0EFA /* FavFieldWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavFieldWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4AF85DF0BA282397D94D4F /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		16FBA20E2FD47CB300C3AC4C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		2100E115A35FD4C07833390A /* FavFieldWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FavFieldWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F4899644A53319D1669DE8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		471FFC24A70ACF64E9BBF86D /* FavFieldWatchRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWatchRelease.entitlements; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDisplayView.swift; sourceTree = "<group>"; };
 		F8C76EB4CFD72B7711435892 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		F9ED2DCE77717046B0E6D5A9 /* FavFieldWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWatch.entitlements; sourceTree = "<group>"; };
-		FD032700E064BEBED050CE51 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -166,7 +166,7 @@
 		65B54021A41FB4B3E926CC67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FD032700E064BEBED050CE51 /* AppIcon.icon */,
+				16FBA20E2FD47CB300C3AC4C /* AppIcon.icon */,
 				9AE85EA08C56C5603334B509 /* Assets.xcassets */,
 				F9ED2DCE77717046B0E6D5A9 /* FavFieldWatch.entitlements */,
 				EB8F8AE042E52238A596F31C /* Info.plist */,
@@ -308,8 +308,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C08B1432383FE687EB72D505 /* AppIcon.icon in Resources */,
 				C158EC5E47AF1E79E3CEB73D /* Assets.xcassets in Resources */,
+				16FBA20F2FD47CB300C3AC4C /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
