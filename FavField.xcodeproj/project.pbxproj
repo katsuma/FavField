@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		062B76686D29E58E64B83014 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4899644A53319D1669DE8 /* APIClient.swift */; };
 		0E8C497D811AAFE9D92D4472 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC8BC274336AB4296488BF1 /* AppConstants.swift */; };
-		16FBA20F2FD47CB300C3AC4C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 16FBA20E2FD47CB300C3AC4C /* AppIcon.icon */; };
 		18A54E5A314E9F083561EAFF /* ScoreDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */; };
 		241C3120F69D56541DDDDDF0 /* TeamPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A20F46DAF38E697E9D7D92 /* TeamPreferences.swift */; };
 		2506014780285AC6D84D23EB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4C1BAD764C1F0174BDFC3 /* Team.swift */; };
@@ -18,6 +17,7 @@
 		387BEB76CAFA72B0927E6632 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4AF85DF0BA282397D94D4F /* AppConfig.swift */; };
 		3A389AA1EA58F65BCF0524F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABADF5EDEEDB0D95F7BA2AED /* ContentView.swift */; };
 		5B7B34E772098FE5FF63CB9A /* WidgetReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C549C8E651A6D6A0DAF5CA13 /* WidgetReloader.swift */; };
+		639ABAA808DB6FE846C65B47 /* WidgetLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AED8C43457833B58734AFC /* WidgetLoadingState.swift */; };
 		6759799318AD532E90A3042D /* ScoreDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */; };
 		7A5BE3C8C3035B052DD87563 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4C1BAD764C1F0174BDFC3 /* Team.swift */; };
 		7ECD061015941A22942268FF /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */; };
@@ -31,9 +31,11 @@
 		A750DFB06C8F40FE0C439718 /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D155528695B3AF181C6E5 /* ScoreService.swift */; };
 		AC2DD4258054D8ADF5BE772A /* FavFieldWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F5E468110A540518133E5B /* FavFieldWidgetBundle.swift */; };
 		C061B271B9A3E36B67320046 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4AF85DF0BA282397D94D4F /* AppConfig.swift */; };
+		C08B1432383FE687EB72D505 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = FD032700E064BEBED050CE51 /* AppIcon.icon */; };
 		C158EC5E47AF1E79E3CEB73D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE85EA08C56C5603334B509 /* Assets.xcassets */; };
 		C4197646AFCA6EA34636A9ED /* ScoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D155528695B3AF181C6E5 /* ScoreService.swift */; };
 		C6336E5C37C91938B14A5FCD /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C76EB4CFD72B7711435892 /* ScoreView.swift */; };
+		E47FEBE28A81E5EF259C56B8 /* WidgetLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AED8C43457833B58734AFC /* WidgetLoadingState.swift */; };
 		E91ACD62E5BA932D576DD5F0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4899644A53319D1669DE8 /* APIClient.swift */; };
 		EA32F4FD1C599EBB29BEF194 /* ScoreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1DE3DD00D78638C059746 /* ScoreResponse.swift */; };
 		EC5DB4E8ED3DED4B408F554A /* FavFieldWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73007D2323BFCB7C69B2989 /* FavFieldWatchApp.swift */; };
@@ -68,7 +70,6 @@
 		00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		06B90B125ED7A94DD7FD0EFA /* FavFieldWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavFieldWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4AF85DF0BA282397D94D4F /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
-		16FBA20E2FD47CB300C3AC4C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		2100E115A35FD4C07833390A /* FavFieldWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FavFieldWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F4899644A53319D1669DE8 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		471FFC24A70ACF64E9BBF86D /* FavFieldWatchRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWatchRelease.entitlements; sourceTree = "<group>"; };
@@ -88,10 +89,12 @@
 		C73007D2323BFCB7C69B2989 /* FavFieldWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavFieldWatchApp.swift; sourceTree = "<group>"; };
 		CF703B4F28017E333C2F7F1B /* FavFieldWidgetRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWidgetRelease.entitlements; sourceTree = "<group>"; };
 		DCC8BC274336AB4296488BF1 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		E1AED8C43457833B58734AFC /* WidgetLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetLoadingState.swift; sourceTree = "<group>"; };
 		EB8F8AE042E52238A596F31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F193E07E02FF5D795FCD6CBB /* ScoreDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDisplayView.swift; sourceTree = "<group>"; };
 		F8C76EB4CFD72B7711435892 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		F9ED2DCE77717046B0E6D5A9 /* FavFieldWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FavFieldWatch.entitlements; sourceTree = "<group>"; };
+		FD032700E064BEBED050CE51 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -122,6 +125,7 @@
 				00CE8DE124B3AB049F7A31FC /* MockAPIClient.swift */,
 				A82D155528695B3AF181C6E5 /* ScoreService.swift */,
 				94A20F46DAF38E697E9D7D92 /* TeamPreferences.swift */,
+				E1AED8C43457833B58734AFC /* WidgetLoadingState.swift */,
 				C549C8E651A6D6A0DAF5CA13 /* WidgetReloader.swift */,
 			);
 			path = Services;
@@ -166,7 +170,7 @@
 		65B54021A41FB4B3E926CC67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				16FBA20E2FD47CB300C3AC4C /* AppIcon.icon */,
+				FD032700E064BEBED050CE51 /* AppIcon.icon */,
 				9AE85EA08C56C5603334B509 /* Assets.xcassets */,
 				F9ED2DCE77717046B0E6D5A9 /* FavFieldWatch.entitlements */,
 				EB8F8AE042E52238A596F31C /* Info.plist */,
@@ -271,7 +275,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					5171C1E86458512A4E15ACA8 = {
 						DevelopmentTeam = 72LKS454FJ;
@@ -308,8 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08B1432383FE687EB72D505 /* AppIcon.icon in Resources */,
 				C158EC5E47AF1E79E3CEB73D /* Assets.xcassets in Resources */,
-				16FBA20F2FD47CB300C3AC4C /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +338,7 @@
 				2506014780285AC6D84D23EB /* Team.swift in Sources */,
 				8580B00900EEAEE735FF6A6E /* TeamPickerView.swift in Sources */,
 				241C3120F69D56541DDDDDF0 /* TeamPreferences.swift in Sources */,
+				E47FEBE28A81E5EF259C56B8 /* WidgetLoadingState.swift in Sources */,
 				2984246B60E3BC93FF0C44CF /* WidgetReloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +359,7 @@
 				C4197646AFCA6EA34636A9ED /* ScoreService.swift in Sources */,
 				7A5BE3C8C3035B052DD87563 /* Team.swift in Sources */,
 				A34245C64AE65290D3D8C776 /* TeamPreferences.swift in Sources */,
+				639ABAA808DB6FE846C65B47 /* WidgetLoadingState.swift in Sources */,
 				5B7B34E772098FE5FF63CB9A /* WidgetReloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +445,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL = "http://localhost:8787";
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -473,6 +480,7 @@
 				DEVELOPMENT_TEAM = 72LKS454FJ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -489,9 +497,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -506,6 +515,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				API_BASE_URL = "https://fav-field.katsuma.workers.dev";
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -540,6 +550,7 @@
 				DEVELOPMENT_TEAM = 72LKS454FJ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -552,6 +563,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;

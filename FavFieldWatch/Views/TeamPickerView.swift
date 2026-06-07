@@ -10,13 +10,13 @@ struct TeamPickerView: View {
     var body: some View {
         Group {
             if isLoading {
-                ProgressView("Loading teams...")
+                ProgressView("読み込み中...")
             } else if let errorMessage {
                 VStack(spacing: 8) {
                     Text(errorMessage)
                         .font(.caption2)
                         .multilineTextAlignment(.center)
-                    Button("Retry") {
+                    Button("再読み込み") {
                         Task { await loadTeams() }
                     }
                 }

@@ -27,11 +27,11 @@ struct ScoreView: View {
             }
 
             HStack {
-                Button("Refresh") {
+                Button("更新") {
                     Task { await loadScore() }
                 }
 
-                Button("Change Team") {
+                Button("チーム変更") {
                     TeamPreferences.shared.favoriteTeamAbbr = nil
                     WidgetReloader.reloadScoreWidget()
                     onChangeTeam()
@@ -47,8 +47,11 @@ struct ScoreView: View {
 
     @MainActor
     private func loadScore() async {
-        isLoading = score == nil
+        isLoading = true
+        score = nil
         errorMessage = nil
+        WidgetLoadingState.markLoading()
+        WidgetReloader.reloadScoreWidget()
 
         do {
             score = try await ScoreService.current.fetchScore(teamAbbr: teamAbbr)
