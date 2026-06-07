@@ -160,7 +160,7 @@ If install fails, check **Signing & Capabilities** on both targets and that App 
 
 1. Open FavField on Apple Watch and pick your favorite team (one of 12 NPB teams).
 2. The main screen shows the latest score line from the Worker API.
-3. Tap **Refresh** to fetch the latest score.
+3. Tap **更新** to fetch the latest score.
 4. Add the **FavField Score** complication for always-visible score on your watch face.
 
 ## Notes

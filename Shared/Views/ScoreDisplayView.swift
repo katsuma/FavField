@@ -98,7 +98,7 @@ struct ScoreDisplayView: View {
                 teamFirst: true
             )
             Text("-")
-                .font(scoreFont.monospacedDigit())
+                .font(scoreFont)
             teamScoreGroup(
                 team: score.home.abbr,
                 value: "\(score.home.score ?? 0)",
@@ -125,7 +125,7 @@ struct ScoreDisplayView: View {
                     .foregroundStyle(valueColor)
             } else {
                 Text(value)
-                    .font(scoreFont.monospacedDigit())
+                    .font(scoreFont)
                     .foregroundStyle(valueColor)
                 Text(team)
                     .font(teamFont)
