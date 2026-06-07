@@ -92,7 +92,11 @@ struct ScoreProvider: TimelineProvider {
 
         Task {
             let entry = await loadEntry()
-            let refresh = ScoreRefreshInterval.nextDate(from: entry.date, status: entry.status)
+            let refresh = ScoreRefreshInterval.nextDate(
+                from: entry.date,
+                status: entry.status,
+                startTime: entry.score?.startTime
+            )
             completion(Timeline(entries: [entry], policy: .after(refresh)))
         }
     }
