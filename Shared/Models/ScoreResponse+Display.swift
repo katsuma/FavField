@@ -108,26 +108,70 @@ enum GameStatus {
 }
 
 enum ScoreRefreshInterval {
-    static func minutes(for status: String) -> Int {
+    private static let firstPitchHour = 13
+
+    private static var tokyoCalendar: Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "Asia/Tokyo")!
+        return calendar
+    }
+
+    static func nextDate(from now: Date, status: String, startTime: String?) -> Date {
         switch status {
         case "live":
-            return 3
+            return now.addingMinutes(3)
         case "pre":
-            return 15
-        case "final":
-            return 30
-        case "cancelled":
-            return 60
-        case "none":
-            return 360
+            return preNextDate(from: now, startTime: startTime)
+        case "final", "none", "cancelled":
+            return nextLikelyFirstPitch(after: now)
         default:
-            return 30
+            return now.addingMinutes(30)
         }
     }
 
-    static func nextDate(from date: Date, status: String) -> Date {
-        let minutes = minutes(for: status)
-        return Calendar.current.date(byAdding: .minute, value: minutes, to: date) ?? date
+    private static func preNextDate(from now: Date, startTime: String?) -> Date {
+        guard let startTime, let start = startDate(from: startTime, now: now) else {
+            return now.addingMinutes(Int.random(in: 30...60))
+        }
+        let mins = Int(start.timeIntervalSince(now) / 60)
+        switch mins {
+        case ..<0:
+            return now.addingMinutes(Int.random(in: 5...10))
+        case 0...30:
+            return now.addingMinutes(Int.random(in: 10...15))
+        default:
+            let candidate = now.addingMinutes(Int.random(in: 30...60))
+            let arriveTarget = start.addingMinutes(-15)
+            return min(candidate, arriveTarget)
+        }
+    }
+
+    private static func nextLikelyFirstPitch(after now: Date) -> Date {
+        let calendar = tokyoCalendar
+        let todayFirstPitch = calendar.date(
+            bySettingHour: firstPitchHour, minute: 0, second: 0, of: now
+        ) ?? now
+        if now < todayFirstPitch {
+            return todayFirstPitch
+        }
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: now) ?? now
+        return calendar.date(
+            bySettingHour: firstPitchHour, minute: 0, second: 0, of: tomorrow
+        ) ?? now.addingMinutes(360)
+    }
+
+    private static func startDate(from startTime: String, now: Date) -> Date? {
+        let parts = startTime.split(separator: ":")
+        guard parts.count == 2, let hour = Int(parts[0]), let minute = Int(parts[1]) else {
+            return nil
+        }
+        return tokyoCalendar.date(bySettingHour: hour, minute: minute, second: 0, of: now)
+    }
+}
+
+private extension Date {
+    func addingMinutes(_ minutes: Int) -> Date {
+        addingTimeInterval(TimeInterval(minutes * 60))
     }
 }
 
