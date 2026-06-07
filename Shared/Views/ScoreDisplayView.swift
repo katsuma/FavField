@@ -62,6 +62,7 @@ struct ScoreDisplayView: View {
                     scoreLine(for: score)
                 }
                 Text(score.subtitleLabelJP)
+                    .fontWeight(.ultraLight)
                     .font(secondaryFont)
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
@@ -182,7 +183,7 @@ struct ScoreDisplayView: View {
     private var teamFont: Font {
         switch style {
         case .widgetRectangular:
-            return .headline.weight(.ultraLight)
+            return .headline
         case .app:
             return .title3
         }
