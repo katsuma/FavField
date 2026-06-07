@@ -173,7 +173,7 @@ struct ScoreDisplayView: View {
     private var scoreFont: Font {
         switch style {
         case .widgetRectangular:
-            return .title2.weight(.light)
+            return .headline.weight(.light)
         case .app:
             return .title3
         }
@@ -182,7 +182,7 @@ struct ScoreDisplayView: View {
     private var teamFont: Font {
         switch style {
         case .widgetRectangular:
-            return .title2.weight(.ultraLight)
+            return .headline.weight(.ultraLight)
         case .app:
             return .title3
         }
